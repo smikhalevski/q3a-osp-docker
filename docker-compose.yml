@@ -1,0 +1,5 @@
+quake3:
+    image: q3a
+    restart: always
+    ports:
+        - "27960:27960/udp"
