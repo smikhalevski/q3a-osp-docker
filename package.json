@@ -1,0 +1,33 @@
+{
+  "name": "q3a",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "watch": "tsc -p tsconfig.build.json -w",
+    "clean": "rm -rf target",
+    "test": "jest --colors --maxWorkers=2",
+    "start": "pm2 start target/out/server.js --name $npm_package_name",
+    "stop": "pm2 delete $npm_package_name",
+    "logs": "pm2 logs $npm_package_name",
+    "restart": "npm run stop || true; npm run start; npm run logs",
+    "docker-build": "npm run build; docker build . -t smikhalevski/$npm_package_name",
+    "docker-start": "docker run -p 27960:27960/udp -p 27960:27960/tcp -e SLACK_WEB_HOOK=${SLACK_WEB_HOOK} smikhalevski/$npm_package_name",
+    "docker-stop": "docker stop smikhalevski/$npm_package_name",
+    "docker-restart": "npm run docker-stop || true; npm run docker-start",
+    "docker-publish": "docker push smikhalevski/$npm_package_name:latest"
+  },
+  "devDependencies": {
+    "@types/jest": "23.3.2",
+    "@types/lodash": "^4.14.122",
+    "@types/node": "^11.10.5",
+    "@types/node-fetch": "^2.1.6",
+    "jest": "23.6.0",
+    "pm2": "^3.3.1",
+    "ts-jest": "23.10.5",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "node-fetch": "^2.3.0"
+  }
+}

@@ -1,0 +1,730 @@
+Last login: Mon Mar  4 19:58:51 on ttys003
+ssh%                                                                                                                                                                                                                                     ~/Documents/Projects/@grabrinc  ssh root@157.230.112.147
+Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-45-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Mar  4 17:29:13 UTC 2019
+
+  System load:  0.06               Processes:              87
+  Usage of /:   11.2% of 24.06GB   Users logged in:        0
+  Memory usage: 30%                IP address for eth0:    157.230.112.147
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+5 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Sun Mar  3 06:16:28 2019 from 109.173.47.32
+root@q3a:~# docker run -p 27960:27960/udp -p 27960:27960/tcp smikhalevski/q3a &^C
+root@q3a:~# ps aux | grep docker
+root      5204  0.0  7.0 758708 71128 ?        Ssl  Mar03   0:53 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+root     12603  0.0  0.3   8512  3600 ?        Sl   Mar03   0:00 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 27960 -container-ip 172.17.0.2 -container-port 27960
+root     12615  0.0  0.3   8512  3640 ?        Sl   Mar03   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 27960 -container-ip 172.17.0.2 -container-port 27960
+root     12621  0.0  0.5  10732  5208 ?        Sl   Mar03   0:04 containerd-shim -namespace moby -workdir /var/lib/containerd/io.containerd.runtime.v1.linux/moby/f8e31cc7a52b2698a603d9dd8a4bd706dea45d7db6e3e875a40f30589faf51aa -address /run/containerd/containerd.sock -containerd-binary /usr/bin/containerd -runtime-root /var/run/docker/runtime-runc
+root     15615  0.0  0.1  14856  1096 pts/0    S+   17:29   0:00 grep --color=auto docker
+root@q3a:~# docker restart smikhalevski/q3a
+Error response from daemon: No such container: smikhalevski/q3a
+root@q3a:~# kill -9 10732
+-bash: kill: (10732) - No such process
+root@q3a:~# kill -9 5208
+-bash: kill: (5208) - No such process
+root@q3a:~# kill -9 12621
+root@q3a:~# docker restart smikhalevski/q3a^C
+root@q3a:~# docker run -p 27960:27960/udp -p 27960:27960/tcp smikhalevski/q3a &
+[1] 15661
+root@q3a:~# tty console mode disabled
+ioq3 1.36_GIT_d068e1dc-2019-02-06 linux-x86_64 Mar  3 2019
+SSE instruction set enabled
+----- FS_Startup -----
+We are looking in the current search path:
+/root/.q3a/osp
+./osp
+./osp/zz-osp-server3a.pk3 (2 files)
+./osp/zz-osp-pak3.pk3 (2 files)
+./osp/zz-osp-pak2.pk3 (7 files)
+./osp/zz-osp-pak1.pk3 (110 files)
+./osp/zz-osp-pak0.pk3 (1045 files)
+/root/.q3a/baseq3
+./baseq3
+./baseq3/pak8.pk3 (9 files)
+./baseq3/pak7.pk3 (4 files)
+./baseq3/pak6.pk3 (64 files)
+./baseq3/pak5.pk3 (7 files)
+./baseq3/pak4.pk3 (272 files)
+./baseq3/pak3.pk3 (4 files)
+./baseq3/pak2.pk3 (148 files)
+./baseq3/pak1.pk3 (26 files)
+./baseq3/pak0.pk3 (3539 files)
+
+----------------------
+5239 files in pk3 files
+execing default.cfg
+couldn't exec q3config_server.cfg
+execing autoexec.cfg
+Hunk_Clear: reset the hunk ok
+--- Common Initialization Complete ---
+logfile opened on Mon Mar  4 17:30:24 2019
+
+IP: 127.0.0.1
+IP: 172.17.0.2
+Opening IP socket: 0.0.0.0:27960
+------ Server Initialization ------
+Server: q3dm17
+Hunk_Clear: reset the hunk ok
+----- FS_Startup -----
+We are looking in the current search path:
+/root/.q3a/osp
+./osp
+./osp/zz-osp-server3a.pk3 (2 files)
+./osp/zz-osp-pak3.pk3 (2 files)
+./osp/zz-osp-pak2.pk3 (7 files)
+./osp/zz-osp-pak1.pk3 (110 files)
+./osp/zz-osp-pak0.pk3 (1045 files)
+/root/.q3a/baseq3
+./baseq3
+./baseq3/pak8.pk3 (9 files)
+./baseq3/pak7.pk3 (4 files)
+./baseq3/pak6.pk3 (64 files)
+./baseq3/pak5.pk3 (7 files)
+./baseq3/pak4.pk3 (272 files)
+./baseq3/pak3.pk3 (4 files)
+./baseq3/pak2.pk3 (148 files)
+./baseq3/pak1.pk3 (26 files)
+./baseq3/pak0.pk3 (3539 files)
+
+handle 1: qconsole.log
+----------------------
+5239 files in pk3 files
+Loading vm file vm/qagame.qvm...
+File "vm/qagame.qvm" found in "./osp/zz-osp-server3a.pk3"
+VM file qagame compiled to 3144188 bytes of code
+qagame loaded in 4109376 bytes on the hunk
+------- Game Initialization -------
+Game session settings: VQ3
+Instagib DISABLED!
+gamename: osp
+gamedate: Mar 04 2003
+Game session settings: VQ3
+------------------------------------------------------------
+InitGame: \sv_hostname\QuakeLAN\sv_maxclients\16\g_gametype\0\timelimit\15\fraglimit\30\version\ioq3 1.36_GIT_d068e1dc-2019-02-06 linux-x86_64 Mar  3 2019\com_gamename\Quake3Arena\com_protocol\71\dmflags\0\mapname\q3dm17\sv_privateClients\0\sv_minRate\0\sv_maxRate\0\sv_dlRate\100\sv_minPing\0\sv_maxPing\0\sv_floodProtect\1\sv_allowDownload\0\gamename\osp\gameversion\OSP v1.03a\server_promode\0\capturelimit\8\g_needpass\0\server_freezetag\0\server_ospauth\0
+ServerTime:	20190304173024	17:30:24 (04 Mar 2019)
+Warmup:
+0 teams with 0 entities
+17 items registered
+-----------------------------------
+------- BotLib Initialization -------
+loaded weapons.c
+loaded items.c
+loaded syn.c
+loaded rnd.c
+loaded match.c
+loaded rchat.c
+------------ Map Loading ------------
+trying to load maps/q3dm17.aas
+loaded maps/q3dm17.aas
+found 29 level items
+-------------------------------------
+33 bots parsed
+50 arenas parsed
+OSP Tourney DM/CA/CTF v(1.03a)
+02 Mar 03
+http://www.OrangeSmoothie.org
+rhea@OrangeSmoothie.org
+
+*** Admin logging disabled! ***
+
+
+>>> MOTD: Setting MOTD through cvars
+
+
+*** Server custom graphics DISABLED! ***
+
+
+>>> ERROR: Could not open decal file "decals/decal-q3dm17.txt"
+*** Map decals disabled
+
+
+Available alternate modes:
+   0 - Free-For-All
+   1 - 1v1
+   2 - ClanBase TeamDM
+   3 - TeamplayDM
+   4 - CTF
+   5 - ClanArena
+   6 - FreezeTag TDM
+(no custom modes defined)
+
+>>> Start/Default mode: DISABLED
+
+
+Loading viewcam positions from "cfg-viewcam/viewcam-q3dm17.cfg"
+19 positions added to the viewcam for q3dm17.
+
+
+Loading player filters from "filters.txt"
+0 player filters added.
+
+
+*** Player name restrictions DISABLED.
+
+AAS initialized.
+-----------------------------------
+execing instagib.cfg
+sv_maxclients will be changed upon restarting.
+bot_enable will be changed upon restarting.
+==== ShutdownGame ====
+ShutdownGame:
+------------------------------------------------------------
+AAS shutdown.
+------ Server Initialization ------
+Server: q3dm1
+Hunk_Clear: reset the hunk ok
+----- FS_Startup -----
+We are looking in the current search path:
+/root/.q3a/osp
+./osp
+./osp/zz-osp-server3a.pk3 (2 files)
+./osp/zz-osp-pak3.pk3 (2 files)
+./osp/zz-osp-pak2.pk3 (7 files)
+./osp/zz-osp-pak1.pk3 (110 files)
+./osp/zz-osp-pak0.pk3 (1045 files)
+/root/.q3a/baseq3
+./baseq3
+./baseq3/pak8.pk3 (9 files)
+./baseq3/pak7.pk3 (4 files)
+./baseq3/pak6.pk3 (64 files)
+./baseq3/pak5.pk3 (7 files)
+./baseq3/pak4.pk3 (272 files)
+./baseq3/pak3.pk3 (4 files)
+./baseq3/pak2.pk3 (148 files)
+./baseq3/pak1.pk3 (26 files)
+./baseq3/pak0.pk3 (3539 files)
+
+handle 1: qconsole.log
+----------------------
+5239 files in pk3 files
+Loading vm file vm/qagame.qvm...
+File "vm/qagame.qvm" found in "./osp/zz-osp-server3a.pk3"
+VM file qagame compiled to 3144188 bytes of code
+qagame loaded in 4109376 bytes on the hunk
+------- Game Initialization -------
+Game session settings: VQ3
+Instagib ENABLED!
+gamename: osp
+gamedate: Mar 04 2003
+Game session settings: VQ3
+------------------------------------------------------------
+InitGame: \sv_hostname\Instagib - OSP Tourney DM/CTF\sv_maxclients\14\g_gametype\0\timelimit\15\fraglimit\30\version\ioq3 1.36_GIT_d068e1dc-2019-02-06 linux-x86_64 Mar  3 2019\com_gamename\Quake3Arena\com_protocol\71\dmflags\0\mapname\q3dm1\sv_privateClients\0\sv_minRate\0\sv_maxRate\0\sv_dlRate\100\sv_minPing\0\sv_maxPing\0\sv_floodProtect\0\sv_allowDownload\1\gamename\osp\gameversion\OSP v1.03a\server_promode\0\capturelimit\8\g_needpass\0\server_freezetag\0\server_ospauth\1
+ServerTime:	20190304173024	17:30:24 (04 Mar 2019)
+Warmup:
+0 teams with 0 entities
+14 items registered
+-----------------------------------
+OSP Tourney DM/CA/CTF v(1.03a)
+02 Mar 03
+http://www.OrangeSmoothie.org
+rhea@OrangeSmoothie.org
+
+*** Admin logging disabled! ***
+
+
+>>> MOTD: Setting MOTD through cvars
+
+
+*** Server custom graphics DISABLED! ***
+
+
+>>> ERROR: Could not open decal file "decals/decal-q3dm1.txt"
+*** Map decals disabled
+
+
+Available alternate modes:
+   0 - Free-For-All
+   1 - 1v1
+   2 - ClanBase TeamDM
+   3 - TeamplayDM
+   4 - CTF
+   5 - ClanArena
+(no custom modes defined)
+
+>>> Start/Default mode set to: Free-For-All
+
+
+Loading viewcam positions from "cfg-viewcam/viewcam-q3dm1.cfg"
+17 positions added to the viewcam for q3dm1.
+
+
+Loading player filters from "filters.txt"
+0 player filters added.
+
+
+*** Player name restrictions DISABLED.
+
+-----------------------------------
+
+ERROR: Could not open maps list file "cfg-maps/ffamaps.cfg"
+
+50 arenas parsed
+Map entry: "ospdm5" (autofind add)
+Map entry: "ospdm3" (autofind add)
+Map entry: "ospdm2" (autofind add)
+Map entry: "ospdm12" (autofind add)
+Map entry: "ospdm11" (autofind add)
+Map entry: "ospdm1" (autofind add)
+Map entry: "ospca1" (autofind) - IGNORED - [type: clanarena] (looking for: ffa)
+Map entry: "ospctf1" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "ospctf2" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "ospdm10" (autofind add)
+Map entry: "ospdm4" (autofind add)
+Map entry: "ospdm6" (autofind add)
+Map entry: "ospdm7" (autofind add)
+Map entry: "ospdm8" (autofind add)
+Map entry: "ospdm9" (autofind add)
+Map entry: "pro-q3dm13" (autofind add)
+Map entry: "pro-q3dm6" (autofind add)
+Map entry: "pro-q3tourney2" (autofind add)
+Map entry: "pro-q3tourney4" (autofind add)
+Map entry: "q3dm9" (autofind add)
+Map entry: "q3tourney6_ctf" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "q3ctf1" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "q3ctf2" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "q3ctf3" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "q3ctf4" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "q3dm0" (autofind) - IGNORED - [type: single] (looking for: ffa)
+Map entry: "q3dm1" (autofind add)
+Map entry: "q3dm10" (autofind add)
+Map entry: "q3dm11" (autofind add)
+Map entry: "q3dm12" (autofind add)
+Map entry: "q3dm13" (autofind add)
+Map entry: "q3dm14" (autofind add)
+Map entry: "q3dm15" (autofind add)
+Map entry: "q3dm16" (autofind add)
+Map entry: "q3dm17" (autofind add)
+Map entry: "q3dm18" (autofind add)
+Map entry: "q3dm19" (autofind add)
+Map entry: "q3dm2" (autofind add)
+Map entry: "q3dm3" (autofind add)
+Map entry: "q3dm4" (autofind add)
+Map entry: "q3dm5" (autofind add)
+Map entry: "q3dm6" (autofind add)
+Map entry: "q3dm7" (autofind add)
+Map entry: "q3dm8" (autofind add)
+Map entry: "q3tourney1" (autofind add)
+Map entry: "q3tourney2" (autofind add)
+Map entry: "q3tourney3" (autofind add)
+Map entry: "q3tourney4" (autofind add)
+Map entry: "q3tourney5" (autofind add)
+Map entry: "q3tourney6" (autofind add)
+Map entry: "test_bigbox" (autofind) - IGNORED - [type: ] (looking for: ffa)
+41 maps added to maplist.
+
+><><>< Default mode "Free-For-All" enabled. ><><><
+Setting ^3"map_rotate"^7 to ^6"1"
+Setting ^3"map_file"^7 to ^6"cfg-maps/ffamaps.txt"
+
+Loading maplist from "cfg-maps/ffamaps.txt"
+Map entry: "ospdm1" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "ospdm2" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "ospdm3" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "ospdm4" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "ospdm5" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "ospdm6" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "ospdm7" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "ospdm8" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "ospdm9" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "ospdm10" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "ospdm11" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "ospdm12" (min: 0, max: 0, fl:30, cl: 0, tl:15 rl:-1)
+Map entry: "q3dm1" (min: 0, max: 6, fl:20, cl: 0, tl:20 rl:-1)
+Map entry: "q3dm2" (min: 0, max: 7, fl:25, cl: 0, tl:20 rl:-1)
+Map entry: "q3dm3" (min: 0, max: 8, fl:25, cl: 0, tl:20 rl:-1)
+Map entry: "q3dm4" (min: 0, max: 6, fl:25, cl: 0, tl:15 rl:-1)
+Map entry: "q3dm5" (min: 0, max: 6, fl:25, cl: 0, tl:15 rl:-1)
+Map entry: "q3dm6" (min: 0, max:12, fl:25, cl: 0, tl:20 rl:-1)
+Map entry: "q3dm7" (min: 4, max:99, fl:30, cl: 0, tl:20 rl:-1)
+Map entry: "q3dm8" (min: 2, max:14, fl:-1, cl:-1, tl:-1 rl:-1)
+Map entry: "q3dm9" (min: 2, max:14, fl:-1, cl:-1, tl:-1 rl:-1)
+Map entry: "q3dm10" (min: 3, max:14, fl:-1, cl:-1, tl:-1 rl:-1)
+Map entry: "q3dm11" (min: 3, max:14, fl:-1, cl:-1, tl:-1 rl:-1)
+Map entry: "q3dm12" (min: 4, max:99, fl:25, cl: 0, tl:20 rl:-1)
+Map entry: "q3dm13" (min: 4, max:10, fl:30, cl: 0, tl:20 rl:-1)
+Map entry: "q3dm14" (min: 4, max:14, fl:-1, cl:-1, tl:-1 rl:-1)
+Map entry: "q3dm15" (min: 4, max:14, fl:-1, cl:-1, tl:-1 rl:-1)
+Map entry: "q3dm16" (min: 3, max:99, fl:-1, cl:-1, tl:-1 rl:-1)
+Map entry: "q3dm17" (min: 4, max:99, fl:-1, cl:-1, tl:-1 rl:-1)
+Map entry: "q3dm18" (min:99, max:99, fl:20, cl: 0, tl:20 rl:-1)
+Map entry: "q3dm19" (min:99, max:99, fl:20, cl: 0, tl:20 rl:-1)
+Map entry: "q3tourney2" (min: 0, max: 6, fl:20, cl: 0, tl:10 rl:-1)
+Map entry: "q3tourney3" (min: 0, max: 7, fl:20, cl: 0, tl:10 rl:-1)
+Map entry: "q3tourney4" (min: 0, max: 7, fl:20, cl: 0, tl:10 rl:-1)
+Map entry: "q3tourney5" (min: 0, max: 5, fl:20, cl: 0, tl:10 rl:-1)
+Map entry: "pro-q3dm6" (min: 0, max:14, fl:30, cl: 0, tl:20 rl:-1)
+Map entry: "pro-q3dm13" (min: 0, max:14, fl:30, cl: 0, tl:20 rl:-1)
+Map entry: "pro-q3tourney2" (min: 0, max:14, fl:30, cl: 0, tl:20 rl:-1)
+Map entry: "pro-q3tourney4" (min: 0, max:14, fl:30, cl: 0, tl:20 rl:-1)
+Map entry: "ospca1" (autofind) - IGNORED - [type: clanarena] (looking for: ffa)
+Map entry: "ospctf1" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "ospctf2" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "q3tourney6_ctf" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "q3ctf1" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "q3ctf2" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "q3ctf3" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "q3ctf4" (autofind) - IGNORED - [type: ctf] (looking for: ffa)
+Map entry: "q3dm0" (autofind) - IGNORED - [type: single] (looking for: ffa)
+Map entry: "q3tourney1" (autofind add)
+Map entry: "q3tourney6" (autofind add)
+Map entry: "test_bigbox" (autofind) - IGNORED - [type: ] (looking for: ffa)
+41 maps added to maplist.
+
+set fraglimit 30
+set map_rotate 1
+set match_latejoin 1
+set match_overtime 0
+set powerup_disable 64
+set server_freezetag 0
+set sv_allowdownload 1
+set sv_floodprotect 0
+set timelimit 20
+==== ShutdownGame ====
+ShutdownGame:
+------------------------------------------------------------
+VM_Restart()
+Loading vm file vm/qagame.qvm...
+File "vm/qagame.qvm" found in "./osp/zz-osp-server3a.pk3"
+------- Game Initialization -------
+Game session settings: VQ3
+Instagib ENABLED!
+gamename: osp
+gamedate: Mar 04 2003
+Game session settings: VQ3
+------------------------------------------------------------
+InitGame: \sv_hostname\Instagib - OSP Tourney DM/CTF\sv_maxclients\14\g_gametype\0\timelimit\20\fraglimit\30\version\ioq3 1.36_GIT_d068e1dc-2019-02-06 linux-x86_64 Mar  3 2019\com_gamename\Quake3Arena\com_protocol\71\dmflags\0\mapname\q3dm1\sv_privateClients\0\sv_minRate\0\sv_maxRate\0\sv_dlRate\100\sv_minPing\0\sv_maxPing\0\sv_floodProtect\0\sv_allowDownload\1\gamename\osp\gameversion\OSP v1.03a\server_promode\0\capturelimit\8\g_needpass\0\server_freezetag\0\server_ospauth\1
+ServerTime:	20190304173026	17:30:26 (04 Mar 2019)
+
+***
+*** Gametype changed, clearing session data.
+***
+Warmup:
+0 teams with 0 entities
+14 items registered
+-----------------------------------
+OSP Tourney DM/CA/CTF v(1.03a)
+02 Mar 03
+http://www.OrangeSmoothie.org
+rhea@OrangeSmoothie.org
+
+*** Admin logging disabled! ***
+
+
+>>> MOTD: Setting MOTD through cvars
+
+
+*** Server custom graphics DISABLED! ***
+
+
+>>> ERROR: Could not open decal file "decals/decal-q3dm1.txt"
+*** Map decals disabled
+
+
+Available alternate modes:
+   0 - Free-For-All
+   1 - 1v1
+   2 - ClanBase TeamDM
+   3 - TeamplayDM
+   4 - CTF
+   5 - ClanArena
+(no custom modes defined)
+
+
+Loading viewcam positions from "cfg-viewcam/viewcam-q3dm1.cfg"
+17 positions added to the viewcam for q3dm1.
+
+
+Loading player filters from "filters.txt"
+0 player filters added.
+
+
+*** Player name restrictions DISABLED.
+
+Client 0 connecting with 0 challenge ping
+ClientConnect: 0
+ClientUserinfoChanged: 0 n\sineed\t\0\model\tim/default\hmodel\tim/default\c1\3\c2\5\hc\100\w\0\l\0\rt\0\st\0
+broadcast: print "sineed ^7connected\n"
+broadcast: print "sineed^7 entered the game\n"
+ClientBegin: 0
+Sent authentication request to 'sineed^7'
+sineed has passed authorization.
+Resolving authorize.quake3arena.com
+authorize.quake3arena.com resolved to 192.246.40.56:27952
+Client 3 connecting with 50 challenge ping
+ClientConnect: 1
+ClientUserinfoChanged: 1 n\Savva\t\0\model\brandon/default\hmodel\brandon/default\c1\4\c2\5\hc\100\w\0\l\0\rt\0\st\0
+broadcast: print "Savva ^7connected\n"
+ClientUserinfoChanged: 1 n\Savva\t\0\model\brandon/default\hmodel\brandon/default\c1\4\c2\5\hc\100\w\0\l\0\rt\0\st\0
+broadcast: print "Savva^7 entered the game\n"
+ClientBegin: 1
+Sent authentication request to 'Savva^7'
+Savva has passed authorization.
+Rcon from 195.208.49.88: map q3dm17
+broadcast: print "sineed^7 entered the game\n"
+ClientBegin: 0
+ClientUserinfoChanged: 1 n\Savva\t\0\model\brandon/default\hmodel\brandon/default\c1\4\c2\5\hc\100\w\0\l\0\rt\0\st\0
+broadcast: print "Savva^7 entered the game\n"
+ClientBegin: 1
+Client 6 connecting with 50 challenge ping
+ClientConnect: 2
+ClientUserinfoChanged: 2 n\BONBONEZ\t\0\model\bones/default\hmodel\bones/default\c1\4\c2\5\hc\100\w\0\l\0\rt\0\st\0
+broadcast: print "BONBONEZ ^7connected\n"
+ClientUserinfoChanged: 2 n\BONBONEZ\t\0\model\bones/default\hmodel\bones/default\c1\4\c2\5\hc\100\w\0\l\0\rt\0\st\0
+broadcast: print "BONBONEZ^7 entered the game\n"
+ClientBegin: 2
+Sent authentication request to 'BONBONEZ^7'
+BONBONEZ has passed authorization.
+broadcast: print "^3Match has begun!\n"
+==== ShutdownGame ====
+ShutdownGame:
+------------------------------------------------------------
+VM_Restart()
+Loading vm file vm/qagame.qvm...
+File "vm/qagame.qvm" found in "./osp/zz-osp-server3a.pk3"
+------- Game Initialization -------
+Game session settings: VQ3
+Instagib ENABLED!
+gamename: osp
+gamedate: Mar 04 2003
+Game session settings: VQ3
+------------------------------------------------------------
+InitGame: \sv_hostname\Instagib - OSP Tourney DM/CTF\sv_maxclients\14\g_gametype\0\timelimit\20\fraglimit\30\version\ioq3 1.36_GIT_d068e1dc-2019-02-06 linux-x86_64 Mar  3 2019\com_gamename\Quake3Arena\com_protocol\71\dmflags\0\mapname\q3dm17\sv_privateClients\0\sv_minRate\0\sv_maxRate\0\sv_dlRate\100\sv_minPing\0\sv_maxPing\0\sv_floodProtect\0\sv_allowDownload\1\gamename\osp\gameversion\OSP v1.03a\Players_Active\1 2 3 \server_promode\0\capturelimit\8\g_needpass\0\server_freezetag\0\server_ospauth\1
+ServerTime:	20190304173140	17:31:40 (04 Mar 2019)
+Game_Start:
+0 teams with 0 entities
+17 items registered
+-----------------------------------
+
+Available alternate modes:
+   0 - Free-For-All
+   1 - 1v1
+   2 - ClanBase TeamDM
+   3 - TeamplayDM
+   4 - CTF
+   5 - ClanArena
+(no custom modes defined)
+
+
+Loading viewcam positions from "cfg-viewcam/viewcam-q3dm17.cfg"
+19 positions added to the viewcam for q3dm17.
+
+
+Loading player filters from "filters.txt"
+0 player filters added.
+
+
+*** Player name restrictions DISABLED.
+
+ClientConnect: 0
+ClientUserinfoChanged: 0 n\sineed\t\0\model\tim/default\hmodel\tim/default\c1\3\c2\5\hc\100\w\0\l\0\rt\0\st\0
+broadcast: print "sineed^7 entered the game\n"
+ClientBegin: 0
+ClientConnect: 1
+ClientUserinfoChanged: 1 n\Savva\t\0\model\brandon/default\hmodel\brandon/default\c1\4\c2\5\hc\100\w\0\l\0\rt\0\st\0
+broadcast: print "Savva^7 entered the game\n"
+ClientBegin: 1
+ClientConnect: 2
+ClientUserinfoChanged: 2 n\BONBONEZ\t\0\model\bones/default\hmodel\bones/default\c1\4\c2\5\hc\100\w\0\l\0\rt\0\st\0
+broadcast: print "BONBONEZ^7 entered the game\n"
+ClientBegin: 2
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 1022 0 22: <world> killed sineed by MOD_TRIGGER_HURT 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 0 1 10: sineed killed Savva by MOD_RAILGUN 7
+Kill: 0 1 10: sineed killed Savva by MOD_RAILGUN 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 0 2 10: sineed killed BONBONEZ by MOD_RAILGUN 7
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 0 1 10: sineed killed Savva by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 0 1 10: sineed killed Savva by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 0 2 10: sineed killed BONBONEZ by MOD_RAILGUN 7
+Kill: 0 1 10: sineed killed Savva by MOD_RAILGUN 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 0 2 10: sineed killed BONBONEZ by MOD_RAILGUN 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 0 1 10: sineed killed Savva by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 1
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 0 1 10: sineed killed Savva by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 1
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 0 2 10: sineed killed BONBONEZ by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 0 2 10: sineed killed BONBONEZ by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 0 1 10: sineed killed Savva by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 1 2 10: Savva killed BONBONEZ by MOD_RAILGUN 7
+Kill: 0 1 10: sineed killed Savva by MOD_RAILGUN 7
+Kill: 2 0 10: BONBONEZ killed sineed by MOD_RAILGUN 7
+Kill: 2 1 10: BONBONEZ killed Savva by MOD_RAILGUN 7
+Kill: 1022 2 22: <world> killed BONBONEZ by MOD_TRIGGER_HURT 7
+Kill: 1 0 10: Savva killed sineed by MOD_RAILGUN 7
+Game_End: Fraglimit
+Exit: Fraglimit hit.
+score: 30  ping: 50  client: 1 Savva
+score: 23  ping: 48  client: 2 BONBONEZ
+score: 13  ping: 51  client: 0 sineed
+broadcast: print "Savva^7 hit the fraglimit.\n"
+broadcast: print "Next map: ^3q3dm3\n"
+Weapon_Stats: 1 MachineGun:41:7:0:0 Shotgun:33:15:1:1 G.Launcher:0:0:1:0 LightningGun:0:0:1:0 Given:177 Recvd:341 Armor:20 Health:75
+Weapon_Stats: 0 Railgun:148:30:0:0 Given:12000 Recvd:8400 Armor:0 Health:0
+Weapon_Stats: 2 Railgun:84:24:0:0 Given:9600 Recvd:8400 Armor:0 Health:0
+broadcast: print "BONBONEZ^7 disconnected\n"
+ClientDisconnect: 2
+broadcast: print "sineed^7 disconnected\n"
+ClientDisconnect: 0
+Current map: "q3dm17"
+Next map: "q3dm3"
+==== ShutdownGame ====
+ShutdownGame:
+------------------------------------------------------------
+------ Server Initialization ------
+Server: q3dm3
+Hunk_Clear: reset the hunk ok
+----- FS_Startup -----
+We are looking in the current search path:
+/root/.q3a/osp
+./osp
+./osp/zz-osp-server3a.pk3 (2 files)
+./osp/zz-osp-pak3.pk3 (2 files)
+./osp/zz-osp-pak2.pk3 (7 files)
+./osp/zz-osp-pak1.pk3 (110 files)
+./osp/zz-osp-pak0.pk3 (1045 files)
+/root/.q3a/baseq3
+./baseq3
+./baseq3/pak8.pk3 (9 files)
+./baseq3/pak7.pk3 (4 files)
+./baseq3/pak6.pk3 (64 files)
+./baseq3/pak5.pk3 (7 files)
+./baseq3/pak4.pk3 (272 files)
+./baseq3/pak3.pk3 (4 files)
+./baseq3/pak2.pk3 (148 files)
+./baseq3/pak1.pk3 (26 files)
+./baseq3/pak0.pk3 (3539 files)
+
+handle 1: qconsole.log
+----------------------
+5239 files in pk3 files
+Loading vm file vm/qagame.qvm...
+File "vm/qagame.qvm" found in "./osp/zz-osp-server3a.pk3"
+VM file qagame compiled to 3144188 bytes of code
+qagame loaded in 4109376 bytes on the hunk
+------- Game Initialization -------
+Game session settings: VQ3
+Instagib ENABLED!
+gamename: osp
+gamedate: Mar 04 2003
+Game session settings: VQ3
+------------------------------------------------------------
+InitGame: \sv_hostname\Instagib - OSP Tourney DM/CTF\sv_maxclients\14\g_gametype\0\timelimit\20\fraglimit\25\version\ioq3 1.36_GIT_d068e1dc-2019-02-06 linux-x86_64 Mar  3 2019\com_gamename\Quake3Arena\com_protocol\71\dmflags\0\mapname\q3dm3\sv_privateClients\0\sv_minRate\0\sv_maxRate\0\sv_dlRate\100\sv_minPing\0\sv_maxPing\0\sv_floodProtect\0\sv_allowDownload\1\gamename\osp\gameversion\OSP v1.03a\Players_Active\1 \server_promode\0\capturelimit\0\g_needpass\0\server_freezetag\0\server_ospauth\1
+ServerTime:	20190304173909	17:39:09 (04 Mar 2019)
+Warmup:
+info_spectator_start doesn't have a spawn function
+info_spectator_start doesn't have a spawn function
+info_spectator_start doesn't have a spawn function
+info_spectator_start doesn't have a spawn function
+1 teams with 3 entities
+16 items registered
+-----------------------------------
+OSP Tourney DM/CA/CTF v(1.03a)
+02 Mar 03
+http://www.OrangeSmoothie.org
+rhea@OrangeSmoothie.org
+
+*** Admin logging disabled! ***
+
+
+>>> MOTD: Setting MOTD through cvars
+
+
+*** Server custom graphics DISABLED! ***
+
+
+>>> ERROR: Could not open decal file "decals/decal-q3dm3.txt"
+*** Map decals disabled
+
+
+Available alternate modes:
+   0 - Free-For-All
+   1 - 1v1
+   2 - ClanBase TeamDM
+   3 - TeamplayDM
+   4 - CTF
+   5 - ClanArena
+(no custom modes defined)
+
+
+Loading viewcam positions from "cfg-viewcam/viewcam-q3dm3.cfg"
+14 positions added to the viewcam for q3dm3.
+
+
+Loading player filters from "filters.txt"
+0 player filters added.
+
+
+*** Player name restrictions DISABLED.
+
+ClientConnect: 1
+ClientUserinfoChanged: 1 n\Savva\t\0\model\brandon/default\hmodel\brandon/default\c1\4\c2\5\hc\100\w\0\l\0\rt\0\st\0
+-----------------------------------
+ClientUserinfoChanged: 1 n\Savva\t\0\model\brandon/default\hmodel\brandon/default\c1\4\c2\5\hc\100\w\0\l\0\rt\0\st\0
+broadcast: print "Savva^7 entered the game\n"
+ClientBegin: 1
+broadcast: print "Savva^7 disconnected\n"
+ClientDisconnect: 1
+Weapon_Stats: 1 Given:0 Recvd:0 Armor:0 Health:0

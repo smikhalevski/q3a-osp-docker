@@ -25,11 +25,21 @@ RUN rm -rf $ioq3_build_dir
 RUN apt-get purge -y ${build_libs}
 RUN apt-get autoremove -y
 
+COPY package.json ${ioq3_lib_dir}
+
+# Install nodejs
+RUN apt-get install -y curl gnupg gnupg2 gnupg1
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
+RUN cd ${ioq3_lib_dir}; npm i --production
+
 # Assets
-COPY ./q3a ${ioq3_lib_dir}
+COPY q3a ${ioq3_lib_dir}
+COPY target/out ${ioq3_lib_dir}
 
 EXPOSE 27960/tcp
 EXPOSE 27960/udp
 
 WORKDIR ${ioq3_lib_dir}
-CMD ["./ioq3ded", "+set", "dedicated", "1", "+set", "fs_game", "osp", "+set", "com_hunkmegs", "64", "+exec", "instagib.cfg", "+set", "rconpassword", "password"]
+
+CMD ["node", "./server.js", "+set", "dedicated", "1", "+set", "fs_game", "osp", "+seta", "com_hunkmegs", "64", "+exec", "instagib.cfg", "+seta", "rconpassword", "password"]
