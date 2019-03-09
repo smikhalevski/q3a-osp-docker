@@ -1,6 +1,8 @@
 /**
  * Stateful plugin that consumes log line-by-line and occasionally invokes callback with the assembled result.
  */
+import {decolorizeText} from './decolorizeText';
+
 type LogPlugin<R> = (line: string) => void;
 
 type LogPluginFactory<R> = (callback: (result: R) => void) => LogPlugin<R>;
@@ -87,7 +89,7 @@ export function createGameStatsLogPlugin(): LogPluginFactory<IGameStats> {
     ['R.Launcher']: Weapon.Rocket_Launcher,
     ['LightningGun']: Weapon.Lightning,
     ['Railgun']: Weapon.Railgun,
-    ['PlasmaGun']: Weapon.Plasma_Gun,
+    ['Plasmagun']: Weapon.Plasma_Gun,
     ['BFG']: Weapon.BFG,
   };
 
@@ -126,7 +128,7 @@ export function createGameStatsLogPlugin(): LogPluginFactory<IGameStats> {
         if (m) {
           const [, score, ping, clientId, name] = m;
           gameStats.playerStats.push({
-            name,
+            name: decolorizeText(name),
             clientId: parseInt(clientId),
             score: parseInt(score),
             ping: parseInt(ping),

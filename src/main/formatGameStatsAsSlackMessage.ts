@@ -1,5 +1,6 @@
 import {ExitReason, IGameStats, Weapon} from './log-plugin';
 import {sumBy} from 'lodash';
+import avatars from './avatars.json';
 
 // https://api.slack.com/docs/messages/builder
 // https://grabrinc.slack.com/apps/A0F7XDUAZ-incoming-webhooks?next_id=0
@@ -39,11 +40,11 @@ const weaponDict: Record<Weapon, string> = {
   [Weapon.Gauntlet]: 'Gauntlet',
   [Weapon.Machine_Gun]: 'Machine Gun',
   [Weapon.Shotgun]: 'Shotgun',
-  [Weapon.Grenade_Launcher]: 'Grenade Launcher',
-  [Weapon.Rocket_Launcher]: 'Rocket Launcher',
+  [Weapon.Grenade_Launcher]: 'Grenade',
+  [Weapon.Rocket_Launcher]: 'Rocket',
   [Weapon.Lightning]: 'Lightning',
   [Weapon.Railgun]: 'Railgun',
-  [Weapon.Plasma_Gun]: 'Plasma Gun',
+  [Weapon.Plasma_Gun]: 'Plasmagun',
   [Weapon.BFG]: 'BFG',
 };
 
@@ -61,42 +62,52 @@ export function formatGameStatsAsSlackMessage(gameStats: IGameStats): ISlackMess
     mrkdwn: true,
     text: (
         `*Map:* ${gameStats.mapName}`
-        + `\n\n*Scoreboard:*\n\n${gameStats.playerStats.map((stats, rank) => `${rank + 1}. ${stats.name}: ${(stats.score + '').replace('-', '–')}`).join('\n')}`
-        + `\n\n*Stats:*`
+        + `\n\n*Scoreboard:*\n${gameStats.playerStats.map((stats, rank) => {
+          const name = (avatars.find((avatar) => avatar.names.includes(stats.name)) || {attachment: {author_name: stats.name}}).attachment.author_name;
+          return (
+              `${rank + 1}.`
+              + ` ${name}  *${(stats.score + '').replace('-', '–')}*\u00A0frags`
+          );
+        }).join('\n')}`
     ),
-    attachments: gameStats.playerStats.map((stats, rank) => {
-      return {
-        fallback: `${stats.name} stats`,
-        color: rank === 0 ? '#36a64f' : '#d4d4d4',
-        footer: rank === 0 ? `${exitReasonDict[gameStats.exitReason]} winner` : '',
-        author_name: stats.name,
-        fields: [
-          {
-            title: 'Connection',
-            value: `⎓ ${stats.ping}`,
-            short: true,
-          },
-          {
-            title: 'Efficiency',
-            value: (
-                `${stats.score} frags`
-                + `\n⊙ ${sumBy(stats.weaponStats, (stats) => stats.attackCount ? stats.hitCount / stats.attackCount * 100 : 0) | 0}%`
-                + `\n↯ +${stats.damageGiven} / –${stats.damageReceived}`
-            ),
-            short: true,
-          },
-          ...stats.weaponStats.map((stats) => {
-            return {
-              title: weaponDict[stats.weapon],
-              value: (
-                  `⊙ ${(stats.hitCount / stats.attackCount * 100) | 0}% (${stats.hitCount} of ${stats.attackCount})`
-                  + (stats.pickUpCount ? `\n${stats.dropCount} drops after ${stats.pickUpCount} pickups` : '')
-              ),
-              short: true,
-            };
-          }),
-        ],
-      };
-    }),
+
+    attachments: [
+      ...gameStats.playerStats.slice(0, 19).map((stats) => {
+        const didWin = stats.score === gameStats.playerStats[0].score;
+
+        return {
+          fallback: `${stats.name} stats`,
+          color: didWin ? '#36a64f' : '#d4d4d4',
+          author_name: stats.name,
+
+          ...(avatars.find((avatar) => avatar.names.includes(stats.name)) || {} as any).attachment,
+
+          text: (
+              `⎓ ${stats.ping}`
+              + `  ·  ${stats.score}\u00A0frags`
+              + `  ·  ⊙\u00A0${sumBy(stats.weaponStats, (stats) => stats.attackCount ? stats.hitCount / stats.attackCount * 100 : 0) / stats.weaponStats.length | 0}%`
+              + `  ·  ↯\u00A0+${stats.damageGiven}\u00A0/\u00A0–${stats.damageReceived}`
+          ),
+
+          fields: [
+            ...stats.weaponStats.map((stats) => {
+              return {
+                title: weaponDict[stats.weapon],
+                value: (
+                    `⊙\u00A0${(stats.hitCount / stats.attackCount * 100) | 0}%   ${stats.hitCount}\u00A0of\u00A0${stats.attackCount}`
+                    // `⊙ ${(stats.hitCount / stats.attackCount * 100) | 0}% (${stats.hitCount || `none`} of ${stats.attackCount} shots)`
+                    // + (stats.pickUpCount ? `\n${stats.dropCount ? `${stats.dropCount} drops` : `no drops`} after ${stats.pickUpCount} pickups` : '')
+                ),
+                short: true,
+              };
+            }),
+          ],
+        };
+      }),
+      {
+        color: '#f8f8f8',
+        footer: '⎓\u00A0Ping    ⊙\u00A0Accuracy    ↯\u00A0Damage',
+      },
+    ],
   };
 }
